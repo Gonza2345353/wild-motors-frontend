@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Gelasio:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/*
+  Estilos globales: variables, reset y lo que usan todas las páginas.
+  Los estilos de cada componente están en su propio archivo (styles/).
+*/
+
+:root {
+  --negro: #000;
+  --azul-noche: #00001c;
+  --azul-panel: #061050;
+  --fondo: #f5f5f5;
+  --texto: #1d1d1d;
+  --texto-suave: #444;
+  --rojo: #a11d2d;
+  --gris-placeholder: #8f8f8f;
+  --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --serif: 'Gelasio', Georgia, 'Times New Roman', serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  color: var(--texto);
+  background: var(--fondo);
+}
+
+h1, h2, h3, p, ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid #8ab4ff;
+  outline-offset: 3px;
+}
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-weight: 500;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.no-encontrado {
+  padding: 96px 24px;
+  text-align: center;
+  font-family: var(--serif);
+}
