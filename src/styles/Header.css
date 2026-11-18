@@ -1,0 +1,199 @@
+/*
+  Estilos de Header.jsx (barra superior, menú y menú de usuario).
+*/
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  padding: 0 20px 48px;
+  color: #fff;
+  background: linear-gradient(180deg, #000 0%, #000 62%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* En las páginas que no son el inicio el header es una barra negra normal */
+.header--solido {
+  position: relative;
+  padding-bottom: 16px;
+  background: #000;
+}
+
+.header__contenido {
+  max-width: 1055px;
+  height: 76px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 42px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.header__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding-left: 16px;
+}
+
+.header__logo-texto {
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+}
+
+.nav__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 16px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.nav__item:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.header__acciones {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-right: 20px;
+}
+
+.header__icono {
+  display: grid;
+  place-items: center;
+}
+
+/* ----- Menú de usuario ----- */
+.header__usuario {
+  position: relative;
+}
+
+.menu-usuario {
+  position: absolute;
+  top: calc(100% + 18px);
+  right: -12px;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 280px;
+  padding: 22px 20px 18px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+  color: #111;
+  text-align: center;
+}
+
+.menu-usuario__avatar svg {
+  width: 56px;
+  height: 56px;
+  color: #111827;
+}
+
+.menu-usuario__nombre {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.menu-usuario__correo {
+  margin-top: 2px;
+  font-size: 13px;
+  color: #555;
+  overflow-wrap: anywhere;
+}
+
+.menu-usuario__estado {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #12850f;
+}
+
+.menu-usuario__estado::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2ecc2e;
+}
+
+.menu-usuario__enlace {
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.menu-usuario__enlace:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.menu-usuario__enlace--salir {
+  color: #c0182b;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 900px) {
+  .header__contenido {
+    gap: 20px;
+  }
+
+  .nav {
+    gap: 18px;
+  }
+
+  .nav__item {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    position: static;
+    padding-bottom: 0;
+    background: #000;
+  }
+
+  .header__contenido {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    padding: 12px 0;
+  }
+
+  .header__logo {
+    padding-left: 0;
+  }
+
+  .nav {
+    order: 3;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+  }
+
+  .header__acciones {
+    padding-right: 0;
+  }
+}

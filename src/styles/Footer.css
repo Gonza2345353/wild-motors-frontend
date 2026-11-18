@@ -1,0 +1,76 @@
+/*
+  Estilos de Footer.jsx.
+*/
+
+.footer {
+  padding: 56px 24px 32px;
+  background: #04040c;
+  color: #fff;
+}
+
+.footer__columnas {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 0.6fr;
+  gap: 32px;
+  max-width: 1104px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.footer__titulo {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.footer__columna ul:not(.footer__redes) {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 14px;
+  font-size: 14px;
+  color: #ececec;
+}
+
+.footer__columna a:hover {
+  text-decoration: underline;
+}
+
+.footer__columna--redes {
+  text-align: center;
+}
+
+.footer__redes {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.footer__legal {
+  margin-top: 64px;
+  font-size: 14px;
+  text-align: center;
+  color: #ececec;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 900px) {
+  .footer__columnas {
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer__columnas {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__columna--redes {
+    text-align: left;
+  }
+
+  .footer__redes {
+    justify-content: flex-start;
+  }
+}

@@ -1,0 +1,81 @@
+/*
+  Estilos de Tarjetas.jsx (tarjetas de autos) y su botón rojo.
+*/
+
+.boton--rojo {
+  width: 103px;
+  height: 28px;
+  border-radius: 2px;
+  background: var(--rojo);
+  color: #fff;
+  font-size: 10px;
+  gap: 6px;
+}
+
+.boton--rojo:hover {
+  background: #c02a3c;
+}
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 250px);
+  justify-content: center;
+  gap: 48px 72px;
+  margin-top: 52px;
+}
+
+.tarjeta {
+  overflow: hidden;
+  border-radius: 4px;
+  background: #000018;
+  color: #fff;
+}
+
+.tarjeta__imagen {
+  display: grid;
+  place-items: center;
+  height: 170px;
+  padding: 12px 8px;
+  background: #fff;
+}
+
+.tarjeta__imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.tarjeta__info {
+  padding: 14px 24px 18px;
+}
+
+.tarjeta__categoria {
+  font-size: 10px;
+  color: #d4d4de;
+}
+
+.tarjeta__nombre {
+  margin-top: 4px;
+  font-family: var(--serif);
+  font-size: 21px;
+  font-weight: 500;
+}
+
+.tarjeta__specs {
+  width: min(100%, 170px);
+  margin-top: 2px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #fff;
+  font-size: 8px;
+  color: #d4d4de;
+}
+
+.tarjeta__precio {
+  margin-top: 14px;
+  font-family: var(--serif);
+  font-size: 13px;
+}
+
+.tarjeta__info .boton {
+  margin-top: 12px;
+}
