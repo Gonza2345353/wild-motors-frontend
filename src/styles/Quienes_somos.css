@@ -1,0 +1,214 @@
+/*
+  Esta vista escala con el ancho de la pantalla, como el diseño.
+  --u vale 1px cuando la ventana mide 1280px de ancho y crece o
+  achica de forma proporcional (con un mínimo y un máximo).
+*/
+.nosotros {
+  --u: clamp(0.7px, 0.078125vw, 1.6px);
+  --nosotros-azul: #2d3a9c;
+
+  background: #fff;
+  color: #1d1d1d;
+}
+
+.nosotros *,
+.nosotros *::before,
+.nosotros *::after {
+  box-sizing: border-box;
+}
+
+/* ============ Escena (franja azul + tarjeta + foto) ============ */
+.nosotros {
+  --franja-alto: calc(172 * var(--u));
+}
+
+.nosotros__escena {
+  position: relative;
+  display: grid;
+  grid-template-columns: calc(443 * var(--u)) minmax(0, 1fr) calc(360 * var(--u));
+  align-items: start;
+  padding: 0 calc(145 * var(--u)) calc(72 * var(--u)) calc(96 * var(--u));
+  /* azul arriba, blanco debajo */
+  background: linear-gradient(
+    180deg,
+    var(--nosotros-azul) 0,
+    var(--nosotros-azul) var(--franja-alto),
+    #fff var(--franja-alto)
+  );
+}
+
+.nosotros__titulo {
+  position: absolute;
+  top: calc(38 * var(--u));
+  left: 0;
+  right: 0;
+  font-family: var(--serif, Georgia, 'Times New Roman', serif);
+  font-size: max(18px, calc(24 * var(--u)));
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  color: #fff;
+}
+
+/* ----- Pestaña "Quienes Somos": sobresale hacia el azul, sin sombra ----- */
+.nosotros__tarjeta {
+  grid-column: 1;
+  margin-top: calc(108 * var(--u));
+  padding: calc(18 * var(--u)) calc(23 * var(--u)) calc(30 * var(--u));
+  border-radius: calc(14 * var(--u)) calc(14 * var(--u)) 0 0;
+  background: #fff;
+}
+
+.nosotros__tarjeta-titulo {
+  margin-bottom: calc(64 * var(--u));
+  font-family: var(--serif, Georgia, 'Times New Roman', serif);
+  font-size: max(18px, calc(26 * var(--u)));
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.nosotros__tarjeta p {
+  font-size: max(12px, calc(16 * var(--u)));
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  text-align: center;
+  color: #333;
+}
+
+.nosotros__tarjeta p + p {
+  margin-top: calc(30 * var(--u));
+}
+
+/* ----- Foto circular a caballo entre el azul y el blanco ----- */
+.nosotros__foto {
+  grid-column: 3;
+  margin-top: calc(57 * var(--u));
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: calc(4 * var(--u)) solid #fff;
+  border-radius: 50%;
+  background: #dfe2e8;
+}
+
+.nosotros__foto img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ----- Franja azul inferior ----- */
+.nosotros__franja {
+  height: calc(64 * var(--u));
+  background: var(--nosotros-azul);
+}
+
+/* ============ Qué nos diferencia ============ */
+.diferencias {
+  padding: calc(86 * var(--u)) calc(45 * var(--u)) calc(96 * var(--u));
+}
+
+.diferencias__titulo {
+  font-family: var(--serif, Georgia, 'Times New Roman', serif);
+  font-size: max(20px, calc(28 * var(--u)));
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.diferencias__grilla {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: calc(41 * var(--u));
+  margin-top: calc(50 * var(--u));
+}
+
+.diferencia__imagen {
+  aspect-ratio: 108 / 75;
+  overflow: hidden;
+  background: #d9d9d9;
+}
+
+.diferencia__imagen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.diferencia__titulo {
+  margin-top: calc(26 * var(--u));
+  font-family: var(--serif, Georgia, 'Times New Roman', serif);
+  font-size: max(16px, calc(20 * var(--u)));
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.diferencia__texto {
+  margin-top: calc(18 * var(--u));
+  font-family: var(--serif, Georgia, 'Times New Roman', serif);
+  font-size: max(13px, calc(16 * var(--u)));
+  line-height: 1.35;
+}
+
+/* ============ Pantallas angostas: tamaños normales y todo apilado ============ */
+@media (max-width: 900px) {
+  .nosotros {
+    --u: 1px;
+    --franja-alto: 120px;
+  }
+
+  .nosotros__escena {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    padding: 0 20px 40px;
+  }
+
+  .nosotros__titulo {
+    top: 36px;
+  }
+
+  /* La foto sube y cruza la franja; la tarjeta queda debajo */
+  .nosotros__foto {
+    grid-column: 1;
+    grid-row: 1;
+    width: min(70vw, 280px);
+    margin-top: 76px;
+  }
+
+  .nosotros__tarjeta {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    margin-top: 28px;
+    padding: 24px 20px 12px;
+    border-radius: 14px;
+  }
+
+  .nosotros__tarjeta-titulo {
+    margin-bottom: 24px;
+  }
+
+  .nosotros__tarjeta p + p {
+    margin-top: 16px;
+  }
+
+  .nosotros__franja {
+    height: 40px;
+  }
+
+  .diferencias {
+    padding: 72px 20px 80px;
+  }
+
+  .diferencias__grilla {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    max-width: 520px;
+    margin: 36px auto 0;
+  }
+}

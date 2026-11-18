@@ -1,0 +1,188 @@
+.tendencias {
+  background: #f5f5f5;
+  color: #1d1d1d;
+}
+
+/* ===== Portada ===== */
+.tend-portada {
+  padding: 72px 24px;
+  background: linear-gradient(180deg, #00001c, #10124a);
+  color: #fff;
+  text-align: center;
+}
+
+.tend-portada h1 {
+  margin: 0;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.tend-portada p {
+  margin: 16px auto 0;
+  max-width: 520px;
+  font-size: 18px;
+}
+
+/* ===== Los más buscados ===== */
+.tend-seccion {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.tend-seccion h2 {
+  margin: 0 0 40px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 28px;
+  font-weight: 500;
+  text-align: center;
+}
+
+.tend-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+}
+
+.tend-auto {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #000018;
+  color: #fff;
+}
+
+.tend-auto__puesto {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #a11d2d;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.tend-auto__imagen {
+  height: 170px;
+  padding: 12px;
+  background: #fff;
+}
+
+.tend-auto__imagen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.tend-auto__info {
+  padding: 16px 20px 20px;
+}
+
+.tend-auto__info h3 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.tend-auto__specs {
+  margin: 6px 0 0;
+  font-size: 11px;
+  color: #d4d4de;
+}
+
+.tend-auto__precio {
+  margin: 14px 0 0;
+  font-family: Georgia, serif;
+  font-size: 15px;
+}
+
+/* ===== Números ===== */
+.tend-datos {
+  padding: 48px 24px;
+  background: #00001c;
+  color: #fff;
+}
+
+.tend-datos ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px 80px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.tend-datos li {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tend-datos__etiqueta {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.tend-datos__valor {
+  font-family: Georgia, serif;
+  font-size: 38px;
+}
+
+/* ===== Cierre ===== */
+.tend-cierre {
+  padding: 56px 24px;
+  background: #2d3a9c;
+  color: #fff;
+  text-align: center;
+}
+
+.tend-cierre h2 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.tend-cierre p {
+  margin: 10px 0 0;
+}
+
+.tend-cierre__botones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.tend-boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 47px;
+  padding: 0 30px;
+  border-radius: 2px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.tend-boton--claro {
+  background: #fff;
+  color: #000;
+}
+
+.tend-boton--contorno {
+  border: 1px solid #fff;
+  color: #fff;
+}

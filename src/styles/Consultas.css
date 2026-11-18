@@ -1,0 +1,323 @@
+/*
+  Esta vista escala con el ancho de la pantalla, como el diseño.
+  --u vale 1px cuando la ventana mide 1280px de ancho y crece o
+  achica de forma proporcional (con un mínimo y un máximo).
+*/
+.consulta {
+  --u: clamp(0.7px, 0.078125vw, 1.6px);
+  --consulta-campo-bg: #ececec;
+  --consulta-borde: #cfcfd4;
+
+  padding: calc(50 * var(--u)) 20px calc(49 * var(--u));
+  background: var(--fondo, #f5f5f5);
+  color: #1d1d1d;
+}
+
+.consulta *,
+.consulta *::before,
+.consulta *::after {
+  box-sizing: border-box;
+}
+
+.consulta__contenedor {
+  width: min(100%, calc(835 * var(--u)));
+  margin: 0 auto;
+}
+
+.consulta__intro {
+  margin: 0 0 calc(41 * var(--u));
+  font-family: var(--serif, Georgia, 'Times New Roman', serif);
+  font-size: max(16px, calc(22 * var(--u)));
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+/* ============ Tarjeta ============ */
+.consulta__tarjeta {
+  padding: calc(20 * var(--u)) calc(37 * var(--u)) calc(24 * var(--u));
+  border: 1px solid #dcdce0;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.consulta__titulo {
+  margin: 0;
+  padding-bottom: calc(8 * var(--u));
+  border-bottom: 1px solid #dddde2;
+  font-family: var(--serif, Georgia, 'Times New Roman', serif);
+  font-size: max(18px, calc(24 * var(--u)));
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* ============ Campos ============ */
+.consulta__campos {
+  display: grid;
+  grid-template-columns: calc(352 * var(--u)) minmax(0, calc(226 * var(--u)));
+  gap: calc(22 * var(--u)) 0;
+  margin-top: calc(21 * var(--u));
+}
+
+.consulta__campo {
+  display: flex;
+  flex-direction: column;
+  gap: calc(12 * var(--u));
+  min-width: 0;
+}
+
+.consulta__campo--izq {
+  width: min(100%, calc(246 * var(--u)));
+}
+
+.consulta__campo--mensaje {
+  margin-top: calc(63 * var(--u));
+}
+
+.consulta__campo label {
+  font-size: max(12px, calc(15 * var(--u)));
+  line-height: 1.2;
+}
+
+.consulta__campo input,
+.consulta__campo select,
+.consulta__campo textarea {
+  width: 100%;
+  border: 1px solid var(--consulta-borde);
+  border-radius: 3px;
+  background-color: var(--consulta-campo-bg);
+  color: #222;
+  font: inherit;
+  font-size: max(13px, calc(14 * var(--u)));
+}
+
+.consulta__campo input,
+.consulta__campo select {
+  height: max(36px, calc(37 * var(--u)));
+  padding: 0 12px;
+}
+
+.consulta__campo textarea {
+  height: calc(118 * var(--u));
+  min-height: 96px;
+  padding: 10px 12px;
+  resize: vertical;
+}
+
+.consulta__campo select {
+  padding-right: 34px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23222' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  appearance: none;
+  cursor: pointer;
+}
+
+.consulta__campo input:focus-visible,
+.consulta__campo select:focus-visible,
+.consulta__campo textarea:focus-visible {
+  outline: 2px solid #4a7dff;
+  outline-offset: 1px;
+}
+
+/* ============ Botones ============ */
+.consulta__acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: calc(20 * var(--u));
+  margin-top: calc(27 * var(--u));
+}
+
+.consulta__boton {
+  width: calc(155 * var(--u));
+  min-width: 124px;
+  height: max(36px, calc(37 * var(--u)));
+  border: 0;
+  border-radius: 2px;
+  color: #fff;
+  font: inherit;
+  font-size: max(13px, calc(14 * var(--u)));
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.consulta__boton--enviar {
+  background: #2e9b0f;
+}
+
+.consulta__boton--enviar:hover {
+  background: #258209;
+}
+
+.consulta__boton--cancelar {
+  background: #6a6a6a;
+}
+
+.consulta__boton--cancelar:hover {
+  background: #4f4f4f;
+}
+
+.consulta__boton:focus-visible {
+  outline: 2px solid #4a7dff;
+  outline-offset: 2px;
+}
+
+/* ============ Pantallas angostas ============ */
+@media (max-width: 720px) {
+  .consulta {
+    --u: 1px;
+    padding-top: 32px;
+  }
+
+  .consulta__tarjeta {
+    padding: 20px 20px 24px;
+  }
+
+  .consulta__campos {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .consulta__campo--izq {
+    width: 100%;
+  }
+
+  .consulta__campo--mensaje {
+    margin-top: 18px;
+  }
+
+  .consulta__acciones {
+    flex-direction: column-reverse;
+  }
+
+  .consulta__boton {
+    width: 100%;
+  }
+}
+
+/*
+  Estilos de la tarjeta "Tus consultas".
+  Usan las variables y los colores del formulario (--u).
+*/
+
+.consultas-lista {
+  margin-top: calc(41 * var(--u));
+}
+
+.consultas-lista__items {
+  margin: calc(21 * var(--u)) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.consultas-lista__vacio {
+  margin: calc(21 * var(--u)) 0 0;
+  font-size: max(13px, calc(14 * var(--u)));
+  color: #555;
+}
+
+/* ----- Cada consulta ----- */
+.consultas-item {
+  padding: calc(18 * var(--u)) 0;
+  border-bottom: 1px solid #dddde2;
+}
+
+.consultas-item:first-child {
+  padding-top: 0;
+}
+
+.consultas-item:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.consultas-item__cabecera {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.consultas-item__asunto {
+  margin: 0;
+  font-size: max(14px, calc(16 * var(--u)));
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.consultas-item__numero {
+  flex-shrink: 0;
+  font-size: max(12px, calc(13 * var(--u)));
+  color: #666;
+}
+
+.consultas-item__mensaje {
+  margin: calc(10 * var(--u)) 0 0;
+  font-size: max(13px, calc(14 * var(--u)));
+  line-height: 1.5;
+  color: #222;
+}
+
+/* ----- Datos de contacto ----- */
+.consultas-item__datos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px calc(24 * var(--u));
+  margin: calc(12 * var(--u)) 0 0;
+  font-size: max(12px, calc(13 * var(--u)));
+}
+
+.consultas-item__datos div {
+  display: flex;
+  gap: 6px;
+}
+
+.consultas-item__datos dt {
+  color: #666;
+}
+
+.consultas-item__datos dt::after {
+  content: ':';
+}
+
+.consultas-item__datos dd {
+  margin: 0;
+  color: #222;
+  overflow-wrap: anywhere;
+}
+
+.consultas-item__acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: calc(20 * var(--u));
+}
+
+.consultas-item__editar,
+.consultas-item__eliminar {
+  min-width: 110px;
+  padding: 9px 18px;
+  border-radius: 5px;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.consultas-item__editar {
+  border: 1px solid #333;
+  color: #333;
+}
+
+.consultas-item__editar:hover {
+  background: #222;
+  color: white;
+}
+
+.consultas-item__eliminar {
+  border: 1px solid #c0392b;
+  color: #c0392b;
+}
+
+.consultas-item__eliminar:hover {
+  background: #c0392b;
+  color: white;
+}

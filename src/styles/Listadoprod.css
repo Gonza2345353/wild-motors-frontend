@@ -1,0 +1,94 @@
+.listado {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 44px 24px 80px;
+}
+
+.listado__titulo {
+  font-family: var(--serif, Georgia, serif);
+  font-size: clamp(24px, 2.6vw, 32px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.listado__subtitulo {
+  max-width: 560px;
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.35;
+  color: #444;
+}
+
+.listado__cuerpo {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 56px;
+  align-items: start;
+  margin-top: 40px;
+}
+
+/* ----- Barra superior del listado (select) ----- */
+.listado__barra {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.listado__select {
+  height: 36px;
+  min-width: 150px;
+  padding: 0 38px 0 14px;
+  border: 1px solid #bdbdc6;
+  border-radius: 4px;
+  background: #fff
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23111' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")
+    no-repeat right 10px center;
+  color: #111;
+  font: inherit;
+  font-size: 14px;
+  appearance: none;
+  cursor: pointer;
+}
+
+.listado__select:focus-visible {
+  outline: 2px solid #4a7dff;
+  outline-offset: 2px;
+}
+
+/* Texto solo para lectores de pantalla */
+.listado__oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ----- Panel con la grilla ----- */
+.listado__panel {
+  padding: 28px;
+  border: 1px solid #d3d3d8;
+  background: #ebebeb;
+}
+
+.listado__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 32px 28px;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 900px) {
+  .listado__cuerpo {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 520px) {
+  .listado__panel {
+    padding: 16px;
+  }
+}
