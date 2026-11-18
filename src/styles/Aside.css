@@ -1,0 +1,68 @@
+/* Barra lateral del panel de administración (Aside.jsx) */
+
+.admin-aside {
+  padding: 37px 62px 37px 27px;
+  background: #00001c;
+  color: #fff;
+}
+
+.admin-aside ul {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.admin-aside__enlace {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 43px;
+  padding: 0 10px;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.admin-aside__enlace:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* Enlace de la página actual */
+.admin-aside__enlace[aria-current='page'] {
+  background: #fff;
+  color: #000;
+}
+
+/* El menú siempre queda al costado del panel; en pantallas angostas se achica */
+@media (max-width: 900px) {
+  .admin-aside {
+    padding: 24px 12px;
+  }
+
+  .admin-aside__enlace {
+    padding: 0 8px;
+    font-size: 14px;
+  }
+}
+
+/* En pantallas muy angostas queda solo con los íconos */
+@media (max-width: 640px) {
+  .admin-aside {
+    padding: 20px 8px;
+  }
+
+  .admin-aside__enlace {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .admin-aside__texto {
+    display: none;
+  }
+}

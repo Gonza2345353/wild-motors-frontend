@@ -1,0 +1,199 @@
+/* Contenido del panel de administración (Panel.jsx) */
+
+.panel__titulo {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.panel__subtitulo {
+  margin: 33px 0 0;
+  font-family: var(--serif, Georgia, 'Times New Roman', serif);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.panel__subtitulo--lista {
+  margin-top: 67px;
+  font-size: 16px;
+}
+
+/* ===== Tarjetas de resumen ===== */
+.panel__resumen {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin: 21px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.resumen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 174px;
+  padding: 18px 16px 14px;
+  color: #111;
+}
+
+.resumen--azul     { background: #b0b5f4; }
+.resumen--verde    { background: #a9f9a9; }
+.resumen--amarillo { background: #fbfb9b; }
+.resumen--violeta  { background: #d0a6fb; }
+
+.resumen__etiqueta {
+  margin: 0;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  font-family: var(--serif, Georgia, 'Times New Roman', serif);
+  font-size: 15px;
+  text-align: center;
+}
+
+.resumen__cuerpo {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  padding: 0 8px;
+}
+
+.resumen__valor {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+/* ===== Vehículos recientes: tarjetas de auto ===== */
+.recientes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 24px;
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.auto-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid #dcdce0;
+  border-radius: 6px;
+  background: #fff;
+  color: #1d1d1d;
+  text-decoration: none;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.auto-card:hover {
+  border-color: #b8b8c4;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+}
+
+.auto-card__imagen {
+  position: relative;
+  display: block;
+  height: 150px;
+  background: #e6e6ea;
+}
+
+.auto-card__imagen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  object-fit: contain;
+}
+
+/* Etiqueta de estado sobre la foto */
+.auto-card__estado {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.auto-card__estado::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.auto-card__estado--disponible { background: #e3f8e3; color: #12750f; }
+.auto-card__estado--reservado  { background: #fff4c2; color: #7a5f00; }
+.auto-card__estado--vendido    { background: #ececf0; color: #555; }
+
+.auto-card__cuerpo {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 16px 16px;
+}
+
+.auto-card__nombre {
+  font-family: var(--serif, Georgia, 'Times New Roman', serif);
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.auto-card__anio {
+  font-size: 13px;
+  color: #666;
+}
+
+.auto-card__pie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+.auto-card__precio {
+  font-family: var(--serif, Georgia, 'Times New Roman', serif);
+  font-size: 15px;
+}
+
+.auto-card__editar {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #00001c;
+}
+
+.auto-card:hover .auto-card__editar {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ===== Pantallas angostas ===== */
+@media (max-width: 1100px) {
+  .panel__resumen {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 420px) {
+  .panel__resumen {
+    grid-template-columns: 1fr;
+  }
+}
