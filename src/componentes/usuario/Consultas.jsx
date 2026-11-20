@@ -52,7 +52,7 @@ export default function Consultas() {
 
             <div className="consulta__campos">
               <div className="consulta__campo consulta__campo--izq">
-                <label htmlFor="consulta-nombre">Nombre y Apellido</label>
+                <label htmlFor="consulta-nombre">Nombre</label>
                 <input
                   id="consulta-nombre"
                   name="nombre"

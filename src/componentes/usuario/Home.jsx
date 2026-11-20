@@ -3,6 +3,8 @@ import Lambo from '../../imagenes/complementarias/lamborghini home.png'
 import tasa0 from '../../imagenes/complementarias/pagatuautoencuotas.png'
 import elecvs from '../../imagenes/complementarias/combustiblevselectricos.png'
 import '../../styles/Home.css'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 
 function IconoFlechaDerecha({ tamano = 26 }) {
@@ -15,6 +17,17 @@ function IconoFlechaDerecha({ tamano = 26 }) {
 }
 
 export default function Home() {
+  const [vehiculos, setVehiculos] = useState([])
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/api/vehiculos')
+      .then((respuesta) => {
+        setVehiculos(respuesta.data.slice(0, 3))
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }, [])
   return (
     <main>
       {/* ===== Hero ===== */}
@@ -93,10 +106,14 @@ export default function Home() {
       </section>
 
       {/* ===== Elegí tu auto ===== */}
-      <section className="catalogo">
-        <h2 className="titulo-seccion">¡¡Elejí tu auto y aprovcha &nbsp;tu tasa del 0% en intereses!!</h2>
-        <Tarjetas />
-      </section>
+     {/* ===== Elegí tu auto ===== */}
+<section className="catalogo">
+  <h2 className="titulo-seccion">
+    ¡¡Elegí tu auto y aprovechá tu tasa del 0% en intereses!!
+  </h2>
+
+  <Tarjetas autos={vehiculos} />
+</section>
   
     </main>
   )

@@ -1,31 +1,8 @@
 import '../../styles/Tendencias.css'
 import { Link } from 'wouter'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 import Tarjetas from '../UsuariosAdmin/Tarjetas'
-
-// Datos de ejemplo: reemplazalos por los reales
-const autos = [
-  {
-    id: 1,
-    nombre: 'Lamborghini Temerario',
-    specs: 'V12 - 760CV - TRACCION TRASERA',
-    precio: 'USD 380,000',
-    imagen: '/img/lamborghini-temerario.jpg',
-  },
-  {
-    id: 2,
-    nombre: 'Pagani Zonda 760',
-    specs: 'V12 - 760CV - TRACCION TRASERA',
-    precio: 'USD 10,000,000',
-    imagen: '/img/pagani-zonda-760.png',
-  },
-  {
-    id: 3,
-    nombre: 'BMW Serie 4',
-    specs: 'L6 - 374CV - TRACCION TRASERA',
-    precio: 'USD 85,000',
-    imagen: '/img/bmw-serie-4.png',
-  },
-]
 
 const datos = [
   { id: 1, etiqueta: 'Consultas esta semana', valor: '1.240' },
@@ -34,8 +11,21 @@ const datos = [
 ]
 
 export default function Tendencias() {
+  const [vehiculos, setVehiculos] = useState([])
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/api/vehiculos')
+      .then((respuesta) => {
+        setVehiculos(respuesta.data.slice(0, 3))
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }, [])
+
   return (
     <main className="tendencias">
+
       {/* ===== Portada ===== */}
       <section className="tend-portada">
         <h1>Tendencias del mercado</h1>
@@ -47,10 +37,7 @@ export default function Tendencias() {
         <h2>Los más buscados de la semana</h2>
 
         <div className="tend-lista">
-          {autos.map((auto, i) => (
-            <span className="tend-auto__puesto">{i + 1}</span>
-          ))}
-           <Tarjetas />
+          <Tarjetas autos={vehiculos} />
         </div>
       </section>
 
@@ -70,11 +57,17 @@ export default function Tendencias() {
       <section className="tend-cierre">
         <h2>¿No encontraste lo que buscabas?</h2>
         <p>Escribinos y te ayudamos a encontrar el auto ideal para vos.</p>
+
         <div className="tend-cierre__botones">
-          <Link href="/Consultas" className="tend-boton tend-boton--claro">Consultar</Link>
-          <Link href="/Modelos" className="tend-boton tend-boton--contorno">Ver catálogo</Link>
+          <Link href="/Consultas" className="tend-boton tend-boton--claro">
+            Consultar
+          </Link>
+          <Link href="/Modelos" className="tend-boton tend-boton--contorno">
+            Ver catálogo
+          </Link>
         </div>
       </section>
+
     </main>
   )
 }
