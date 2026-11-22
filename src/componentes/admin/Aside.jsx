@@ -4,8 +4,6 @@ import { FiGrid, FiMail } from 'react-icons/fi'
 import { BsCarFront } from 'react-icons/bs'
 import { PiPersonArmsSpread } from 'react-icons/pi'
 
-// exacto: el enlace solo se marca si la dirección es idéntica
-// (si no, "/admin" quedaría marcado en todas las páginas de admin)
 const enlaces = [
   { href: '/admin', texto: 'Panel de Admin', Icono: FiGrid, exacto: true },
   { href: '/admin/vehiculos', texto: 'Vehiculos', Icono: BsCarFront },
