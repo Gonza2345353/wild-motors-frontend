@@ -7,7 +7,7 @@ export default function Consultas() {
       <h1 className="consultas-admin__titulo">
         Consultas Recibidas
       </h1>
-      <ListadoConsultas admin={true} />
+      <ListadoConsultas />
     </section>
   )
 }

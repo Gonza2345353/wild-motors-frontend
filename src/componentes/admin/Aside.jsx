@@ -5,7 +5,7 @@ import { BsCarFront } from 'react-icons/bs'
 import { PiPersonArmsSpread } from 'react-icons/pi'
 
 const enlaces = [
-  { href: '/admin', texto: 'Panel de Admin', Icono: FiGrid, exacto: true },
+  { href: '/', texto: 'Panel de Admin', Icono: FiGrid, exacto: true },
   { href: '/admin/vehiculos', texto: 'Vehiculos', Icono: BsCarFront },
   { href: '/admin/usuarios', texto: 'Usuarios', Icono: PiPersonArmsSpread },
   { href: '/admin/consultas', texto: 'Consultas', Icono: FiMail },
@@ -16,7 +16,6 @@ export default function Aside() {
 
   const estaActivo = (enlace) =>
     enlace.exacto ? ubicacion === enlace.href : ubicacion.startsWith(enlace.href)
-
   return (
     <aside className="admin-aside">
       <nav aria-label="Administración">
