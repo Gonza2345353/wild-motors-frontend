@@ -1,0 +1,491 @@
+/* Vista de vehículos del administrador (admin/Vehiculos.jsx).
+   El estilo de las tarjetas está en Tarjetas.css. */
+
+/* ===== Título + botón Agregar ===== */
+.vehiculos-admin__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.vehiculos-admin__titulo {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.vehiculos-admin__agregar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: #1fa83a;
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.vehiculos-admin__agregar:hover {
+  background: #168a2d;
+}
+
+/* ===== Barra negra: filtros + buscador ===== */
+.vehiculos-admin__barra {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 18px;
+  padding: 14px 24px;
+  background: #000;
+}
+
+.vehiculos-admin__filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.vehiculos-admin__filtro {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.vehiculos-admin__filtro select {
+  min-width: 130px;
+  padding: 5px 8px;
+  border: 0;
+  border-radius: 2px;
+  background: #e6e6e6;
+  font: inherit;
+  font-size: 13px;
+  color: #1d1d1d;
+}
+
+.vehiculos-admin__buscador {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 1 300px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: #d9d9d9;
+  color: #444;
+}
+
+.vehiculos-admin__buscador input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 14px;
+  color: #1d1d1d;
+}
+
+/* ===== Lista de tarjetas ===== */
+.vehiculos-admin__lista {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vehiculos-admin__item {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Espacio reservado para el formulario de alta y edición */
+.vehiculos-admin__formulario {
+  margin-top: 16px;
+  padding: 20px 24px;
+  border: 1px solid #cfcfcf;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.vehiculos-admin__item .vehiculos-admin__formulario {
+  margin-top: 0;
+}
+
+.vehiculos-admin__vacio {
+  margin: 32px 0 0;
+  text-align: center;
+  color: #666;
+}
+
+/* Texto solo para lectores de pantalla */
+.vehiculos-admin__oculto {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ===== Pantallas angostas ===== */
+@media (max-width: 640px) {
+  .vehiculos-admin__barra {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 14px 16px;
+  }
+
+  .vehiculos-admin__buscador {
+    flex-basis: auto;
+  }
+
+  .vehiculos-admin__filtro select {
+    width: 100%;
+  }
+}
+
+.vehiculos-admin__item{
+    justify-items: center;
+}
+
+
+.vehiculos-admin__formulario {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.formulario__cabecera {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.formulario__seccion {
+    margin-bottom: 30px;
+}
+
+.formulario__seccion h3 {
+    font-size: 15px;
+    margin-bottom: 18px;
+    color: #333;
+}
+
+.formulario__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.formulario__seccion label {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 13px;
+}
+
+.formulario__seccion input,
+.formulario__seccion select,
+.formulario__seccion textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font: inherit;
+}
+
+.formulario__imagenes {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(130px, 1fr));
+    gap: 15px;
+}
+
+.formulario__imagen {
+    min-height: 120px;
+    padding: 12px;
+    border: 1px dashed #bbb;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.formulario__texto-secundario {
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    display: grid;
+    gap: 12px;
+}
+
+.formulario__acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.formulario__acciones button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+/* ===== FORMULARIO DE VEHÍCULOS ===== */
+
+.vehiculos-admin__formulario {
+  margin-top: 20px;
+  padding: 30px;
+  border: 1px solid #dedede;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+}
+
+.vehiculos-admin__formulario h2 {
+  margin: 0 0 28px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e8e8e8;
+  color: #171717;
+  font-size: 23px;
+  font-weight: 600;
+}
+
+/* Secciones */
+
+.formulario__seccion {
+  margin-bottom: 28px;
+  padding: 22px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.formulario__seccion h3 {
+  margin: 0 0 22px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e2e2e2;
+  color: #222;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* Distribución de campos */
+
+.formulario__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* Etiquetas */
+
+.formulario__seccion label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 17px;
+  color: #333;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Inputs y select */
+
+.formulario__seccion input:not([type="file"]),
+.formulario__seccion select,
+.formulario__seccion textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 11px 13px;
+  border: 1px solid #d8d8d8;
+  border-radius: 5px;
+  outline: none;
+  background: #fff;
+  color: #222;
+  font: inherit;
+  font-size: 13px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.formulario__seccion textarea {
+  min-height: 100px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.formulario__seccion input:focus,
+.formulario__seccion select:focus,
+.formulario__seccion textarea:focus {
+  border-color: #777;
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+/* Carga de imágenes del vehículo */
+
+.formulario__imagenes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.formulario__imagen {
+  min-width: 0;
+  padding: 16px;
+  border: 1px dashed #c9c9c9;
+  border-radius: 7px;
+  background: #fff;
+}
+
+.formulario__imagen span {
+  color: #333;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.formulario__imagen input[type="file"],
+.formulario__seccion input[type="file"] {
+  width: 100%;
+  max-width: 100%;
+  font-size: 12px;
+  color: #555;
+}
+
+.formulario__imagen small {
+  display: block;
+  overflow: hidden;
+  margin-top: 8px;
+  color: #777;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Textos secundarios */
+
+.formulario__texto-secundario {
+  position: relative;
+  margin-bottom: 18px;
+  padding: 20px;
+  border: 1px solid #e1e1e1;
+  border-radius: 7px;
+  background: #fff;
+}
+
+.formulario__texto-secundario label {
+  margin-bottom: 16px;
+}
+
+.formulario__texto-secundario button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 13px;
+  border: 1px solid #e4caca;
+  border-radius: 5px;
+  background: #fff;
+  color: #b83232;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.formulario__texto-secundario button:hover {
+  background: #fff1f1;
+}
+
+/* Botón agregar texto secundario */
+
+.formulario__seccion > button {
+  padding: 9px 15px;
+  border: 1px solid #222;
+  border-radius: 5px;
+  background: #222;
+  color: #fff;
+  font: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.formulario__seccion > button:hover {
+  background: #444;
+}
+
+/* Acciones */
+
+.formulario__acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 10px;
+}
+
+.formulario__acciones button {
+  padding: 11px 22px;
+  border: 1px solid #222;
+  border-radius: 5px;
+  background: #222;
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.formulario__acciones button:hover {
+  background: #444;
+}
+
+.formulario__acciones button:last-child {
+  border-color: #d4d4d4;
+  background: #fff;
+  color: #333;
+}
+
+.formulario__acciones button:last-child:hover {
+  background: #eee;
+}
+
+/* Responsive */
+
+@media (max-width: 800px) {
+  .formulario__imagenes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .vehiculos-admin__formulario {
+    padding: 16px;
+  }
+
+  .formulario__seccion {
+    padding: 15px;
+  }
+
+  .formulario__grid,
+  .formulario__imagenes {
+    grid-template-columns: 1fr;
+  }
+
+  .formulario__acciones {
+    flex-direction: column;
+  }
+
+  .formulario__acciones button {
+    width: 100%;
+  }
+}

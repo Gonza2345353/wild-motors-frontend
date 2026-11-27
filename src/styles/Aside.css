@@ -66,3 +66,11 @@
     display: none;
   }
 }
+.admin-aside {
+  flex: 0 0 245px;
+  box-sizing: border-box;
+  min-height: calc(100vh - 76px);
+  padding: 37px 15px 37px 15px;
+  background: #00001c;
+  color: #fff;
+}

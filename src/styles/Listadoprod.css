@@ -27,7 +27,6 @@
   margin-top: 40px;
 }
 
-/* ----- Barra superior del listado (select) ----- */
 .listado__barra {
   display: flex;
   justify-content: flex-end;
@@ -35,8 +34,8 @@
 }
 
 .listado__select {
-  height: 36px;
-  min-width: 150px;
+  height: 40px;
+  min-width: 200px;
   padding: 0 38px 0 14px;
   border: 1px solid #bdbdc6;
   border-radius: 4px;
@@ -73,11 +72,6 @@
   background: #ebebeb;
 }
 
-.listado__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 32px 28px;
-}
 
 /* ----- Responsive ----- */
 @media (max-width: 900px) {
@@ -91,4 +85,33 @@
   .listado__panel {
     padding: 16px;
   }
+}
+
+/* En Listadoprod.css */
+.listado--admin {
+  max-width: none;
+  width: 100%;
+}
+
+.listado--admin .listado__cuerpo {
+  display: block;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.listado--admin .listado__panel {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 24px;
+    border: 1px solid #d3d3d8;
+    background: #ebebeb;
+}
+
+.listado--admin .tarjetas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+    justify-content: stretch;
+    gap: 24px;
+    width: 100%;
+    margin-top: 0;
 }

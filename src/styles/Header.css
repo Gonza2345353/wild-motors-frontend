@@ -1,6 +1,10 @@
+
 /*
-  Estilos de Header.jsx (barra superior, menú y menú de usuario).
+  Estilos de Header.jsx
+  Barra superior, navegación y menú de usuario.
 */
+
+/* ----- Header principal ----- */
 
 .header {
   position: absolute;
@@ -8,56 +12,73 @@
   left: 0;
   right: 0;
   z-index: 10;
+  box-sizing: border-box;
   padding: 0 20px 48px;
   color: #fff;
   background: linear-gradient(180deg, #000 0%, #000 62%, rgba(0, 0, 0, 0) 100%);
 }
 
-/* En las páginas que no son el inicio el header es una barra negra normal */
-.header--solido {
+.header--solido,
+.header--admin {
   position: relative;
+  width: 100%;
   padding-bottom: 16px;
   background: #000;
 }
 
 .header__contenido {
+  display: flex;
+  align-items: center;
+  gap: 15px;
   max-width: 1055px;
   height: 76px;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 42px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.7);
 }
+
+/* ----- Logo ----- */
 
 .header__logo {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-shrink: 0;
   gap: 2px;
   padding-left: 16px;
 }
 
-.header__logo-texto {
-  font-size: 8px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+.header__contenido > a {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
+
+.header__contenido > a img {
+  display: block;
+  width: 100px;
+}
+
+/* ----- Navegación ----- */
 
 .nav {
   display: flex;
   align-items: center;
-  gap: 38px;
+  gap: 30px;
+  margin-left:15px ;
 }
 
 .nav__item {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
+  gap: 2px;
   font-size: 16px;
   font-weight: 500;
   white-space: nowrap;
+}
+
+.nav__item svg {
+  display: block;
+  flex-shrink: 0;
 }
 
 .nav__item:hover {
@@ -65,23 +86,58 @@
   text-underline-offset: 6px;
 }
 
+/* ----- Acciones del header ----- */
+
 .header__acciones {
-  margin-left: auto;
   display: flex;
   align-items: center;
   gap: 18px;
+  margin-left: auto;
   padding-right: 20px;
 }
 
+.header__usuario {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
 .header__icono {
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  margin: 0px;
+}
+
+.header__icono svg {
+  display: block;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+}
+
+/* Foto de perfil */
+
+.header__foto {
+  display: block;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 /* ----- Menú de usuario ----- */
-.header__usuario {
-  position: relative;
-}
 
 .menu-usuario {
   position: absolute;
@@ -91,6 +147,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
   width: 280px;
   padding: 22px 20px 18px;
   border-radius: 8px;
@@ -100,11 +157,62 @@
   text-align: center;
 }
 
+/* ----- Avatar ----- */
+
+.menu-usuario__avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
 .menu-usuario__avatar svg {
+  display: block;
   width: 56px;
   height: 56px;
   color: #111827;
 }
+
+.menu-usuario__avatar img {
+  display: block;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.menu-usuario__avatar--editable {
+  position: relative;
+  display: inline-flex;
+  cursor: pointer;
+}
+
+/* ----- Cámara ----- */
+
+.menu-usuario__camara {
+  position: absolute;
+  right: -3px;
+  bottom: -3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 19px;
+  height: 19px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #fff;
+  color: #111;
+}
+
+.menu-usuario__camara svg {
+  display: block;
+  width: 11px;
+  height: 11px;
+  flex-shrink: 0;
+}
+
+/* ----- Información del usuario ----- */
 
 .menu-usuario__nombre {
   margin-top: 10px;
@@ -115,8 +223,8 @@
 
 .menu-usuario__correo {
   margin-top: 2px;
-  font-size: 13px;
   color: #555;
+  font-size: 13px;
   overflow-wrap: anywhere;
 }
 
@@ -125,18 +233,21 @@
   align-items: center;
   gap: 6px;
   margin-top: 14px;
+  color: #12850f;
   font-size: 13px;
   font-weight: 600;
-  color: #12850f;
 }
 
 .menu-usuario__estado::before {
   content: '';
   width: 8px;
   height: 8px;
+  flex-shrink: 0;
   border-radius: 50%;
   background: #2ecc2e;
 }
+
+/* ----- Enlaces ----- */
 
 .menu-usuario__enlace {
   margin-top: 12px;
@@ -153,7 +264,105 @@
   color: #c0182b;
 }
 
+/* ----- Edición del perfil ----- */
+
+.menu-usuario__lapiz {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #555;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.menu-usuario__lapiz svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.menu-usuario__lapiz:hover {
+  background: #eee;
+  color: #111;
+}
+
+/* Input del nombre */
+
+.menu-usuario__input {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 10px;
+  padding: 7px 10px;
+  border: 1px solid #b8b8c4;
+  border-radius: 6px;
+  background: #fff;
+  color: #111;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.menu-usuario__input:focus {
+  outline: none;
+  border-color: #00001c;
+}
+
+/* ----- Botones de edición ----- */
+
+.menu-usuario__acciones {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.menu-usuario__boton {
+  padding: 7px 16px;
+  border: 1px solid #00001c;
+  border-radius: 6px;
+  background: #00001c;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.menu-usuario__boton:hover:not(:disabled) {
+  opacity: 0.85;
+}
+
+.menu-usuario__boton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.menu-usuario__boton--secundario {
+  border-color: #b8b8c4;
+  background: #fff;
+  color: #00001c;
+}
+
+/* ----- Header de administración ----- */
+
+.header--admin .header__contenido {
+  max-width: none;
+  margin: 0;
+  padding: 0 30px;
+}
+
 /* ----- Responsive ----- */
+
 @media (max-width: 900px) {
   .header__contenido {
     gap: 20px;
@@ -193,7 +402,15 @@
     gap: 8px 20px;
   }
 
-  .header__acciones {
-    padding-right: 0;
+  .header__usuario {
+    margin-left: auto;
+  }
+
+  .header__contenido > .header__icono {
+    margin-left: 0;
+  }
+
+  .header--admin .header__contenido {
+    padding: 12px 10px;
   }
 }
